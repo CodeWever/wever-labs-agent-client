@@ -1,0 +1,5 @@
+.env
+*.local
+.DS_Store
+smoke-output.jsonl
+mcp-registry-key.pem

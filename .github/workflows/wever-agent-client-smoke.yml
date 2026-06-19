@@ -1,0 +1,34 @@
+name: Wever Agent Client Smoke Test
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "17 12 * * 1"
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Check public descriptors
+        run: |
+          curl -fsSI https://weverlabs.com/.well-known/mcp.json
+          curl -fsSI https://weverlabs.com/mcp-server.json
+          curl -fsSI https://weverlabs.com/agents.json
+          curl -fsSI https://weverlabs.com/.well-known/agent-card.json
+          curl -fsSI https://weverlabs.com/openapi.json
+          curl -fsSI https://weverlabs.com/llms.txt
+
+      - name: Run external agent client smoke test
+        run: |
+          chmod +x ./curl-smoke.sh
+          ./curl-smoke.sh | tee smoke-output.jsonl
+          grep -q '"runner_state":"passed"' smoke-output.jsonl
+          grep -q '"receipt_verified"' smoke-output.jsonl
+          grep -q '"transcript_hash"' smoke-output.jsonl
