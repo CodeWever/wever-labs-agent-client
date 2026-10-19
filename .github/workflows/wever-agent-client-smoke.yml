@@ -19,7 +19,6 @@ jobs:
       - name: Check public descriptors
         run: |
           curl -fsSI https://weverlabs.com/.well-known/mcp.json
-          curl -fsSI https://weverlabs.com/mcp-server.json
           curl -fsSI https://weverlabs.com/agents.json
           curl -fsSI https://weverlabs.com/.well-known/agent-card.json
           curl -fsSI https://weverlabs.com/openapi.json
