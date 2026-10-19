@@ -1,0 +1,60 @@
+{
+  "jsonrpc": "2.0",
+  "id": 3,
+  "result": {
+    "isError": false,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"ok\":true,\"service_id\":\"com.weverlabs/diligenceops-inventory\",\"version\":\"0.1.0\",\"operation\":\"evidence_inventory\",\"execution\":\"completed\",\"input_sha256\":\"01d1a020038e1fd863409001e38ae6504e716d5f73f221c9813217ff56f1835d\",\"result_sha256\":\"6668053fe86678ea3d6ecc7d03b24c677b3a83914c6f52986cbc9ce5f21ded15\",\"result\":{\"operation\":\"evidence_inventory\",\"version\":\"1.0.0\",\"matching\":\"trimmed_ascii_case_insensitive_exact\",\"available_evidence\":[\"formation\",\"accounts\"],\"expected_evidence\":[\"formation\",\"ownership\",\"accounts\"],\"matched_evidence\":[\"formation\",\"accounts\"],\"missing_evidence\":[\"ownership\"],\"unexpected_evidence\":[],\"counts\":{\"available\":2,\"expected\":3,\"matched\":2,\"missing\":1,\"unexpected\":0},\"coverage_percentage\":67,\"complete_label_coverage\":false,\"boundary\":\"Compares caller-supplied labels only. No files are read, evidence contents checked, diligence certified, authority granted or external action performed. Coverage is a label count, not a risk or readiness score.\"},\"provenance\":{\"kind\":\"deterministic_computation\",\"source\":\"Wever Labs\",\"signature\":\"none\",\"scope\":\"Supplied data only; not independent verification of source facts.\"}}"
+      }
+    ],
+    "structuredContent": {
+      "ok": true,
+      "service_id": "com.weverlabs/diligenceops-inventory",
+      "version": "0.1.0",
+      "operation": "evidence_inventory",
+      "execution": "completed",
+      "input_sha256": "01d1a020038e1fd863409001e38ae6504e716d5f73f221c9813217ff56f1835d",
+      "result_sha256": "6668053fe86678ea3d6ecc7d03b24c677b3a83914c6f52986cbc9ce5f21ded15",
+      "result": {
+        "operation": "evidence_inventory",
+        "version": "1.0.0",
+        "matching": "trimmed_ascii_case_insensitive_exact",
+        "available_evidence": [
+          "formation",
+          "accounts"
+        ],
+        "expected_evidence": [
+          "formation",
+          "ownership",
+          "accounts"
+        ],
+        "matched_evidence": [
+          "formation",
+          "accounts"
+        ],
+        "missing_evidence": [
+          "ownership"
+        ],
+        "unexpected_evidence": [],
+        "counts": {
+          "available": 2,
+          "expected": 3,
+          "matched": 2,
+          "missing": 1,
+          "unexpected": 0
+        },
+        "coverage_percentage": 67,
+        "complete_label_coverage": false,
+        "boundary": "Compares caller-supplied labels only. No files are read, evidence contents checked, diligence certified, authority granted or external action performed. Coverage is a label count, not a risk or readiness score."
+      },
+      "provenance": {
+        "kind": "deterministic_computation",
+        "source": "Wever Labs",
+        "signature": "none",
+        "scope": "Supplied data only; not independent verification of source facts."
+      }
+    }
+  }
+}

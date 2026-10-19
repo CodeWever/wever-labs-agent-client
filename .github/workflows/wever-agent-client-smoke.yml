@@ -11,10 +11,19 @@ on:
 jobs:
   smoke:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
 
     steps:
       - name: Check out repo
         uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Test smoke failure detection
+        run: npm test
 
       - name: Check public descriptors
         run: |
@@ -25,9 +34,12 @@ jobs:
           curl -fsSI https://weverlabs.com/llms.txt
 
       - name: Run external agent client smoke test
+        shell: bash
         run: |
           chmod +x ./curl-smoke.sh
           ./curl-smoke.sh | tee smoke-output.jsonl
           grep -q '"runner_state":"passed"' smoke-output.jsonl
-          grep -q '"receipt_verified"' smoke-output.jsonl
+          grep -q '"computation_verified":true' smoke-output.jsonl
+          grep -q '"input_hash_verified":true' smoke-output.jsonl
+          grep -q '"result_hash_verified":true' smoke-output.jsonl
           grep -q '"transcript_hash"' smoke-output.jsonl
